@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <form class="form" action="#" method="POST">
+            <h2 class="form__title">New payment</h2>
+            <h3 class="form__error"></h3>          
+            <input type="text" class="form__input form__input--name" placeholder="Card holder name">
+            <input type="text" class="form__input form__input--number" placeholder="Card Number">            
+            <input type="text" class="form__input form__input--date" placeholder="Expiry Month / Expiry Year">  
+            <div class="form__buttons">
+                <button class="form__buttons__item" id="fill">Fill Up</button>
+                <button class="form__buttons__item" type="submit" id="submit">Submit</button>
+            </div>
+             <div class="form__card">
+                <img class="form__card__img" src="./assets/img/card-bg.png" alt="card">
+                <div class="form__card__bank-name">Bank Name</div>
+                <div class="form__card__number">
+                    <span class="four-numbers">0000&nbsp;</span><span class="four-numbers">0000&nbsp;</span><span class="four-numbers">0000&nbsp;</span><span class="four-numbers">0000&nbsp;</span>
+                </div>
+                <div class="form__card__info">
+                    <div class="form__card__info__name">Your Name</div>
+                    <div class="form__card__info__dates">
+                        <div class="form__card__info__dates__item">EXPIRY</div>
+                        <div class="form__card__info__dates__item"><span id="month">00</span> / <span id="year">00</span></div>
+                        <div class="form__card__info__dates__item">MM / YY</div>
+                    </div>
+                    <div class="form__card__info__type">
+                        <img class="form__card__info__type__img" src="./assets/img/mastercard.png" alt="mastercard">
+                    </div>
+                </div>
+                
+             </div>   
+        </form>
+    </div>
+   <script src="assets/js/number.js" async></script>
+   <script src="./assets/js/buttons.js" async></script> 
+   <script src="./assets/js/date.js"> async</script> 
+   <script src="./assets/js/name.js" async></script> 
+   <script src="./assets/js/functions.js" async></script> 
+</body>
+</html>

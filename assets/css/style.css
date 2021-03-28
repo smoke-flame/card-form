@@ -1,0 +1,202 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 750px;
+  margin: 100px auto 0;
+  background-color: #394047;
+  border-radius: 2.5rem;
+  padding: 5rem 3rem;
+}
+
+.form {
+  width: 100%;
+}
+
+.form__error {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: opacity 0.3s linear, background-color 0.3s linear;
+  transition: opacity 0.3s linear, background-color 0.3s linear;
+}
+
+.form__error.active {
+  padding: 10px 2rem;
+  height: auto;
+  margin: 0 auto 30px;
+  opacity: 1;
+  background-color: #f37878;
+}
+
+.form__title {
+  color: #FFFFFF;
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.form__input {
+  width: 50%;
+  display: block;
+  margin: 0 auto 2.8rem;
+  padding: 1rem 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #A6A9AB;
+  background-color: inherit;
+  font-size: 1.6rem;
+  color: #FFFFFF;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  font-weight: 300;
+}
+
+.form__input.incorrect {
+  border: 1px solid #b34242;
+}
+
+.form__input:focus {
+  background-color: #22272b;
+}
+
+.form__buttons {
+  width: 50%;
+  margin: 0 auto 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.form__buttons__item {
+  width: 35%;
+  background-color: #30CBF8;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem 0;
+  border-radius: 1.7rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.form__buttons__item:hover {
+  background-color: #07a6d4;
+}
+
+.form__card {
+  max-width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #000;
+  border-radius: 25px;
+  position: relative;
+}
+
+.form__card__img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.form__card__bank-name {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  position: absolute;
+  top: 15%;
+  left: 7%;
+}
+
+.form__card__number {
+  max-width: 100%;
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.form__card__info {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  position: absolute;
+  bottom: 5%;
+  left: 7%;
+  width: 86%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form__card__info__name {
+  max-width: 35%;
+}
+
+.form__card__info__dates {
+  font-size: 1.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form__card__info__type {
+  width: 20%;
+}
+
+.form__card__info__type__img {
+  max-width: 100%;
+  height: auto;
+}
+
+.four-numbers {
+  margin-left: 5px;
+}
+
+.four-numbers:last-child {
+  margin-left: 0;
+}
+/*# sourceMappingURL=style.css.map */
