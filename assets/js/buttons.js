@@ -6,7 +6,7 @@ const errorField = document.querySelector('.form__error');
 const defaultInfo = {
     name: 'Jhon Smith',
     cardNumber: 5169147129584558,
-    nameofBank: 'Default bank',
+    cardType: 'Default card',
     date: '12/24',
     month: 12,
     year: 24
@@ -14,6 +14,7 @@ const defaultInfo = {
 
 submitBtn.addEventListener('click', e => {
     e.preventDefault();
+    checkCard(numberInput.value, numberInput)  
     let isFilled = true;
     arrayInputs.forEach( item => {
         item.classList.contains('incorrect') ? isFilled = false : false; 
@@ -22,7 +23,7 @@ submitBtn.addEventListener('click', e => {
         console.log('all is ok');
         // can send to server
     } else {
-        let message = 'You left some field blank. Fill in the field and resubmit';
+        let message = 'You left some field blank or incorrect. Fill in the field and resubmit';
         showError(message);
     }
 })
@@ -34,11 +35,11 @@ fillBtn.addEventListener('click', e => {
     dateInput.value = defaultInfo.date;
     numberInput.value = defaultInfo.cardNumber;
 
-    renderNumber(String(defaultInfo.cardNumber));
+    renderNumber(String(defaultInfo.cardNumber), numberInput);
     cardName.textContent = defaultInfo.name;
     cardMonth.textContent = defaultInfo.month;
     cardYear.textContent = defaultInfo.year;
-    bankName.textContent = defaultInfo.nameofBank;
+    cardType.textContent = defaultInfo.cardType;
 
     arrayInputs.forEach( item => {
         item.classList.remove('incorrect'); 

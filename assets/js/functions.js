@@ -1,32 +1,29 @@
-function sendRequest(url, item) {
-    fetch(url)
-        .then( response => {
-            return response.json();
-        }).then(data => {
-            console.log(data);
-            switch(data.scheme) {
-                case 'visa':
-                    cardImg.src = './assets/img/visa.png';
-                    break;
-                case 'mastercard':
-                    cardImg.src = './assets/img/mastercard.png';
-                    break;
-            } 
-            bankName.textContent = data.bank.name;
-        
-        }).catch( error => {
-            let mes = 'You entered an incorrect card number, please try to do it again'
-            showError(mes)
-            item.classList.add('incorrect');
-        });
+
+function checkCard(cardCode, item) {
+    const cardInfo = new CardInfo(cardCode, {
+        banksLogosPath: '/node_modules/card-info/dist/banks-logos/',
+        brandsLogosPath: '/node_modules/card-info/dist/brands-logos/',
+    });
+    if(!cardInfo.brandName) {   
+        let mes = 'You entered an incorrect card number, please try to do it again'
+        showError(mes);  
+    } else {
+        renderNumber(cardInfo.number, item)
+        cardImg.src = `.${cardInfo.brandLogo}`;
+        cardType.textContent = `${cardInfo.brandName} card`;
+    }
+    
+     
 }
 
-function renderNumber(stringNumber) {
+
+function renderNumber(stringNumber, item) {
     let array = stringNumber.split('');
         let firstFourNumbers = [],
             secondFourNumbers = [],
             trirdFourNumbers = [],
             fourthFourNumbers = [];
+            lastNumbers =[];
         array.forEach( (item, index) => {       
             if(index < 4) {
                 firstFourNumbers.push(item);
@@ -36,10 +33,21 @@ function renderNumber(stringNumber) {
                 trirdFourNumbers.push(item);
             } else if(index >= 12 && index < 16) {
                 fourthFourNumbers.push(item);
+            } else {
+                lastNumbers.push(item);
             }
         })
-        let number = [firstFourNumbers, secondFourNumbers, trirdFourNumbers, fourthFourNumbers];
-        numberToHtml(number) 
+        if( checkCardCode(firstFourNumbers, secondFourNumbers, trirdFourNumbers, fourthFourNumbers) ) {
+            let mes = 'You entered an incorrect card number, please try to do it again'
+            showError(mes);
+            item.classList.add('incorrect')
+            return;
+        } else {
+            let number = [firstFourNumbers, secondFourNumbers, trirdFourNumbers, fourthFourNumbers, lastNumbers];
+            numberToHtml(number) 
+            item.classList.remove('incorrect')
+        }
+        
 }
 
 function numberToHtml(array) {
@@ -69,3 +77,14 @@ function compareDates(month, year) {
     }
     
 }
+
+function checkCardCode(arr1, arr2, arr3, arr4) {
+    if (arr1.join('') == arr2.join('') || arr2.join('') == arr3.join('')
+    || arr3.join('') == arr4.join('') || arr2.join('') == arr4.join('') || arr1.join('') == arr4.join('')) {
+        return true
+    } else {
+        return false
+    }
+}
+
+

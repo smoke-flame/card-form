@@ -1,7 +1,8 @@
+
 const numberInput = document.querySelector('.form__input--number');
 const cardNumber = document.querySelector('.form__card__number');
 const cardImg = document.querySelector('.form__card__info__type__img');
-const bankName = document.querySelector('.form__card__bank-name');
+const cardType = document.querySelector('.form__card__card-type');
 
 
 
@@ -11,15 +12,10 @@ numberInput.addEventListener('input', event => {
 
 numberInput.addEventListener('focusout', event => {
     let num = event.target.value.replace(/\s/g, '')   
-    if(num.length === 16 ) {
-        
-        let cardCode = num.substr(0, 8);
-        let url = `https://lookup.binlist.net/${cardCode}`;
-  
-        sendRequest(url, event.target);
-        renderNumber(num)
-        event.target.classList.remove('incorrect'); 
-
+    if(num.length > 12 && num.length < 20) {
+        event.target.classList.remove('incorrect');
+        checkCard(num, event.target)               
+         
     } else {
         event.target.classList.add('incorrect');
     }

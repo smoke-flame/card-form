@@ -7,5 +7,7 @@ nameInput.addEventListener('focusout', event => {
         event.target.classList.remove('incorrect');
     } else {
         event.target.classList.add('incorrect');
+        let mes = 'You entered incorrect name';
+        showError(mes)
     }  
 });
